@@ -1,4 +1,7 @@
 # Fastread
+
+[![Build Status](https://travis-ci.org/stasfilin/fastread.svg?branch=master)](https://travis-ci.org/stasfilin/fastread)
+
 _Fastread is a library for read big files_
 
 ## How to install and update
