@@ -37,7 +37,7 @@ setup(
                          'coverage==4.2',
                          'pytest-cov==2.4.0']
     },
-    download_url='https://github.com/stasfilin/fastread/tarball/v0.0.2',
+    download_url='https://github.com/stasfilin/fastread/tarball/v0.0.3',
     classifiers=[
         'Development Status :: 1 - Planning',
         'Environment :: Web Environment',
