@@ -6,18 +6,22 @@ class Fastread(object):
         self.filename = filename
 
 
-    def _load(self):
+    def _load(self,
+              sep: str = None):
         if not self.filename:
             raise Exception('You need filename')
         try:
             with open(self.filename, 'r') as f:
                 for line in f:
+                    if sep:
+                        line = line.split(str(sep))
                     yield line
         except FileNotFoundError:
             raise FileNotFoundError('File not Found')
 
-    def lines(self):
-        return self._load()
+    def lines(self,
+              sep: str = None):
+        return self._load(sep)
 
     def find(self,
              word: str = None):

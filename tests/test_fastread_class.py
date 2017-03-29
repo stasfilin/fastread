@@ -1,5 +1,6 @@
 import pytest
 import os
+import sys
 
 from fastread import Fastread
 
@@ -12,11 +13,12 @@ def count_total_lines(lines):
         total += 1
     return total
 
-def test_fastread_fines():
+def test_fastread_lines():
 
     ff = Fastread(BASE_DIR+'/tests/data/test_data.txt')
     total = count_total_lines(ff.lines())
     assert total == 128457
+
 
 def test_fastread_find_word():
 
@@ -33,3 +35,9 @@ def test_load_invalid_file():
             count_total_lines(ff.lines())
         except FileNotFoundError as e:
             assert type(e) == FileNotFoundError
+
+def test_fastread_lines_with_sep():
+
+    ff = Fastread(BASE_DIR+'/tests/data/test_data.txt')
+    lines = ff.lines(sep=',')
+    assert len(list(lines)[1232]) == 2
