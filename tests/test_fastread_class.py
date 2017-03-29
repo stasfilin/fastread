@@ -12,7 +12,7 @@ def count_total_lines(lines):
         total += 1
     return total
 
-def test_fastread_load_file():
+def test_fastread_fines():
 
     ff = Fastread(BASE_DIR+'/tests/data/test_data.txt')
     total = count_total_lines(ff.lines())
@@ -25,3 +25,11 @@ def test_fastread_find_word():
     total = count_total_lines(ff.find('big'))
 
     assert total == 94
+
+
+def test_load_invalid_file():
+        ff = Fastread('invalid_file.txt')
+        try:
+            count_total_lines(ff.lines())
+        except FileNotFoundError as e:
+            assert type(e) == FileNotFoundError
