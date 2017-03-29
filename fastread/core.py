@@ -32,3 +32,15 @@ class Fastread(object):
             if word in line:
                 yield line
 
+    def row(self,
+            number: int = None):
+        if not number:
+            raise Exception('Type number')
+
+        lines = self.lines()
+        try:
+            row = list(lines)[number]
+            return row
+        except Exception as e:
+            raise Exception(e)
+
