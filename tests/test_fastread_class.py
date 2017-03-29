@@ -1,10 +1,9 @@
-import pytest
 import os
-import sys
 
 from fastread import Fastread
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
 
 def count_total_lines(lines):
     total = 0
@@ -12,6 +11,7 @@ def count_total_lines(lines):
     for l in lines:
         total += 1
     return total
+
 
 def test_fastread_lines():
 
@@ -35,11 +35,13 @@ def test_load_invalid_file():
         except FileNotFoundError as e:
             assert type(e) == FileNotFoundError
 
+
 def test_fastread_lines_with_sep():
 
     ff = Fastread(BASE_DIR+'/tests/data/test_data.txt')
     lines = ff.lines(sep=',')
     assert len(list(lines)[1232]) == 2
+
 
 def test_fastread_get_row():
 

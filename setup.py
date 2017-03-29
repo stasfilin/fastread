@@ -8,6 +8,9 @@ from fastread import __version__
 with open(join(dirname(__file__), 'requirements.txt')) as f:
     required = f.read().splitlines()
 
+with open(join(dirname(__file__), 'requirements-dev.txt')) as f:
+    required_dev = f.read().splitlines()
+
 with open(join(dirname(__file__), 'README.md')) as f:
     long_description = f.read()
 
@@ -33,6 +36,9 @@ setup(
     include_package_data=True,
     description='',
     long_description=long_description,
+    extras_require={
+        'performance':  required_dev
+    },
     classifiers=[
         'Development Status :: 1 - Planning',
         'Environment :: Web Environment',

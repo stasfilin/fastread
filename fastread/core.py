@@ -5,7 +5,6 @@ class Fastread(object):
                  filename: str = None):
         self.filename = filename
 
-
     def _load(self,
               sep: str = None):
         if not self.filename:
@@ -43,4 +42,3 @@ class Fastread(object):
             return row
         except Exception as e:
             raise Exception(e)
-
